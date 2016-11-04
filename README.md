@@ -40,8 +40,8 @@
  
   compiler.plugin('emit', function (compilation, callback) {<br/>
     var applyPluginsAsyncWaterfall = self.applyPluginsAsyncWaterfall(compilation);<br/>
-    // Get all chunks => wrong上面注释有问题<br/>
-    //TODO 增加注释<br/>
+    // Get all chunks => wrong该注释可能有问题<br/>
+    // TODO 增加注释<br/>
     // 得到包含chunks的列表<br/>
     //参数:  所有入口文件  :   包含的chunks   参数传进来需要排除的chunks<br/>
     var chunks = self.filterChunks(compilation.getStats().toJson(), self.options.chunks, self.options.excludeChunks);<br/>
@@ -56,3 +56,6 @@
   原注释为Get all chunks 显然上有不妥，已反馈官网 不知道是否会采纳~<br/>
   
   
+  免责： 
+  
+   该文仅为个人留记文章，不含任何批判等恶略含义，如果有不合适言辞，还请多多包涵！
