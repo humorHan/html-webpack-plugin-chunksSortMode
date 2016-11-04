@@ -10,7 +10,7 @@
 
 ###解决办法： 
 
-  更改该插件下index.js 下修改相应源码为TODO下一行代码，如下：
+  更改该插件下index.js 下修改相应源码为TODO下一行代码，如下：<br/>
   <code>
   HtmlWebpackPlugin.prototype.sortChunks = function (chunks, sortMode) {
   // Sort mode auto by default:
@@ -34,9 +34,9 @@
   throw new Error('"' + sortMode + '" is not a valid chunk sort mode');
 };
   </code>
-  
+  <br/>
   ### 其次，不得不说该插件审核的严格性可能还有提高的空间---某行注释有错
-  
+  <br/>
   <code>
   compiler.plugin('emit', function (compilation, callback) {
     var applyPluginsAsyncWaterfall = self.applyPluginsAsyncWaterfall(compilation);
@@ -49,8 +49,8 @@
     chunks = self.sortChunks(chunks, self.options.chunksSortMode);
     // Let plugins alter the chunks and the chunk sorting
     chunks = compilation.applyPluginsWaterfall('html-webpack-plugin-alter-chunks', chunks, { plugin: self });
-  </code>
-  根据源码可知
+  </code><br/>
+  根据源码可知<br/>
   <code>var chunks = self.filterChunks(compilation.getStats().toJson(), self.options.chunks, self.options.excludeChunks);</code>
   是所有chunks文件去除self.options.excludeChunks 再匹配self.options.chunks之后的文件集合，并非所有chunk文件。
   原注释为Get all chunks 显然上有不妥，已反馈官网 不知道是否会采纳~
