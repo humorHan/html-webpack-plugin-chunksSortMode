@@ -40,7 +40,7 @@
  
   compiler.plugin('emit', function (compilation, callback) {<br/>
     var applyPluginsAsyncWaterfall = self.applyPluginsAsyncWaterfall(compilation);<br/>
-    // Get all chunks => wrong该注释可能有问题<br/>
+    // Get all chunks => wrong该注释可能有问题(已给官网反馈，据说下版本会更正~)<br/>
     // TODO 增加注释<br/>
     // 得到包含chunks的列表<br/>
     //参数:  所有入口文件  :   包含的chunks   参数传进来需要排除的chunks<br/>
@@ -59,3 +59,22 @@
   免责： 
   
    该文仅为个人留记文章，不含任何批判等恶略含义，如果有不合适言辞，还请多多包涵！
+   
+   
+   
+   
+   
+   
+   //以下内容暂未证实
+   chunksSortMode: function (chunk1, chunk2) {
+      var orders = ['manifest', 'style', 'vendor', 'app'];
+      var order1 = orders.indexOf(chunk1.names[0]);
+      var order2 = orders.indexOf(chunk2.names[0]);
+      if (order1 > order2) {
+        return 1;
+      } else if (order1 < order2) {
+        return -1;
+      } else {
+        return 0;
+      }
+   }
