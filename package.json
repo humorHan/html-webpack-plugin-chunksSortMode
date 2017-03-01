@@ -5,6 +5,11 @@
   "main": "gulpFile.js",
   "scripts": {
   },
+  "keywords":[
+    "webpack",
+    "html-webpack-plugin",
+    "webpack plugin"
+  ],
   "author": "humorHan",
   "license": "ISC",
   "dependencies": {
